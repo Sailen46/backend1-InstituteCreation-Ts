@@ -1,7 +1,7 @@
 import app from "./src/app";
 import envConfig from "./src/config/config";
-import sequelize from "./src/database/connection"; // we can write import "../database/connection" also
-sequelize.sync({alter:true})
+
+
 
 
 

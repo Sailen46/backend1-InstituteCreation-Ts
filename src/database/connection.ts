@@ -1,13 +1,15 @@
 import { Sequelize } from "sequelize-typescript";
+import dotenv from "dotenv"
+dotenv.config()
 
 const sequelize = new Sequelize({
-    database: process.env.DB_NAME || 'institute_creation', // database name given in .env
+    database: process.env.DB_NAME, //'institute_creation' database name given in .env
     dialect: "mysql", // which database you are using
-    username: process.env.DB_USERNAME || 'root', // username given in .env
+    username: process.env.DB_USERNAME, // 'root', username given in .env
     password: process.env.DB_PASSWORD, // password given in .env
-    host: process.env.DB_HOST || 'localhost', // localhost or IP address of server given in .env
+    host: process.env.DB_HOST, //'localhost', localhost or IP address of server given in .env
     port: Number(process.env.DB_PORT), // Default MySQL port
-    models: [__dirname + "/models"] // path of models
+    models: [__dirname + "/models"] // path of models in which __dirname means from where your file is executing
     
 })
 sequelize.authenticate()
@@ -22,10 +24,10 @@ sequelize.authenticate()
 
   sequelize.sync({alter:false})
   .then(() => {
-    console.log("All Models (Tables) Were Synchronized or Migrated Successfully.");
+    console.log("All Models (Tables) Were Updated or Synchronized or Migrated Successfully.");
   })
   .catch((err) => {
-    console.error(`Failed To Sync or Migrate The Models (Table) ${err}`);
+    console.error(`Failed To Update or Synchronize or Migrate The Models (Table) ${err}`);
   });
 
   export default sequelize
