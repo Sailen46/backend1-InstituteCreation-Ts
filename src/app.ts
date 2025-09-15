@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
-import authRoute from "./route/globals/auth/auth-route";
-import createInstituteRoute from "./route/institute-admin/institute-admin-route"
+import authRoute from "./routes/global/auth/auth-route";
+import createInstituteRoute from "./routes/institute-admin/institute-admin-route"
 
 
 
